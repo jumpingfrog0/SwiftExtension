@@ -63,7 +63,7 @@ extension TimeInterval {
         case (.microsecond, .second):
             return Date(timeIntervalSince1970: self / 100_0000).timeIntervalSince1970
         default:
-            SWAssert(false, "Convert failed. Not valid parameters.")
+            jf_assert(false, "Convert failed. Not valid parameters.")
             return self
         }
     }

@@ -15,7 +15,6 @@
 		080083A51DE58BFD00F49279 /* SwiftExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080083A41DE58BFD00F49279 /* SwiftExtensionTests.swift */; };
 		080083B01DE58BFD00F49279 /* SwiftExtensionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080083AF1DE58BFD00F49279 /* SwiftExtensionUITests.swift */; };
 		080083D21DE58D5300F49279 /* Array+Extend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080083BE1DE58D5300F49279 /* Array+Extend.swift */; };
-		080083D31DE58D5300F49279 /* LogMacros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080083C01DE58D5300F49279 /* LogMacros.swift */; };
 		080083D41DE58D5300F49279 /* NSBundel+Extend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080083C31DE58D5300F49279 /* NSBundel+Extend.swift */; };
 		080083D51DE58D5300F49279 /* NSDate+Extend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080083C41DE58D5300F49279 /* NSDate+Extend.swift */; };
 		080083D61DE58D5300F49279 /* Number+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080083C51DE58D5300F49279 /* Number+Format.swift */; };
@@ -31,6 +30,7 @@
 		080083E01DE58D5300F49279 /* UINavigationBar+Extend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080083CF1DE58D5300F49279 /* UINavigationBar+Extend.swift */; };
 		080083E11DE58D5300F49279 /* UIView+Extend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080083D01DE58D5300F49279 /* UIView+Extend.swift */; };
 		080083E21DE58D5300F49279 /* UIViewController+Extend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080083D11DE58D5300F49279 /* UIViewController+Extend.swift */; };
+		080083EB1DE5B33B00F49279 /* JFLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080083EA1DE5B33B00F49279 /* JFLog.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,8 +65,6 @@
 		080083AF1DE58BFD00F49279 /* SwiftExtensionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftExtensionUITests.swift; sourceTree = "<group>"; };
 		080083B11DE58BFD00F49279 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		080083BE1DE58D5300F49279 /* Array+Extend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extend.swift"; sourceTree = "<group>"; };
-		080083C01DE58D5300F49279 /* LogMacros.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogMacros.swift; sourceTree = "<group>"; };
-		080083C21DE58D5300F49279 /* LogMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogMacros.h; sourceTree = "<group>"; };
 		080083C31DE58D5300F49279 /* NSBundel+Extend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSBundel+Extend.swift"; sourceTree = "<group>"; };
 		080083C41DE58D5300F49279 /* NSDate+Extend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extend.swift"; sourceTree = "<group>"; };
 		080083C51DE58D5300F49279 /* Number+Format.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Number+Format.swift"; sourceTree = "<group>"; };
@@ -82,6 +80,8 @@
 		080083CF1DE58D5300F49279 /* UINavigationBar+Extend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Extend.swift"; sourceTree = "<group>"; };
 		080083D01DE58D5300F49279 /* UIView+Extend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extend.swift"; sourceTree = "<group>"; };
 		080083D11DE58D5300F49279 /* UIViewController+Extend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extend.swift"; sourceTree = "<group>"; };
+		080083E81DE5B31400F49279 /* LogMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogMacros.h; sourceTree = "<group>"; };
+		080083EA1DE5B33B00F49279 /* JFLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFLog.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,8 +164,8 @@
 		080083BD1DE58D5300F49279 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				080083E51DE5B31400F49279 /* Log */,
 				080083BE1DE58D5300F49279 /* Array+Extend.swift */,
-				080083BF1DE58D5300F49279 /* Macros */,
 				080083C31DE58D5300F49279 /* NSBundel+Extend.swift */,
 				080083C41DE58D5300F49279 /* NSDate+Extend.swift */,
 				080083C51DE58D5300F49279 /* Number+Format.swift */,
@@ -185,19 +185,19 @@
 			path = Source;
 			sourceTree = "<group>";
 		};
-		080083BF1DE58D5300F49279 /* Macros */ = {
+		080083E51DE5B31400F49279 /* Log */ = {
 			isa = PBXGroup;
 			children = (
-				080083C01DE58D5300F49279 /* LogMacros.swift */,
-				080083C11DE58D5300F49279 /* Objc */,
+				080083EA1DE5B33B00F49279 /* JFLog.swift */,
+				080083E71DE5B31400F49279 /* Objc */,
 			);
-			path = Macros;
+			path = Log;
 			sourceTree = "<group>";
 		};
-		080083C11DE58D5300F49279 /* Objc */ = {
+		080083E71DE5B31400F49279 /* Objc */ = {
 			isa = PBXGroup;
 			children = (
-				080083C21DE58D5300F49279 /* LogMacros.h */,
+				080083E81DE5B31400F49279 /* LogMacros.h */,
 			);
 			path = Objc;
 			sourceTree = "<group>";
@@ -346,7 +346,7 @@
 				080083D81DE58D5300F49279 /* Stack.swift in Sources */,
 				080083921DE58BFD00F49279 /* ViewController.swift in Sources */,
 				080083DE1DE58D5300F49279 /* UIImage+Extend.swift in Sources */,
-				080083D31DE58D5300F49279 /* LogMacros.swift in Sources */,
+				080083EB1DE5B33B00F49279 /* JFLog.swift in Sources */,
 				080083D91DE58D5300F49279 /* String+Extend.swift in Sources */,
 				080083DB1DE58D5300F49279 /* UIApplication+Extend.swift in Sources */,
 				080083E01DE58D5300F49279 /* UINavigationBar+Extend.swift in Sources */,
@@ -512,6 +512,7 @@
 				DEVELOPMENT_TEAM = R4BZ43Z9R2;
 				INFOPLIST_FILE = SwiftExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jumpingfrog0.swfitextension.SwiftExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -525,6 +526,7 @@
 				DEVELOPMENT_TEAM = R4BZ43Z9R2;
 				INFOPLIST_FILE = SwiftExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-D RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jumpingfrog0.swfitextension.SwiftExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
