@@ -7,7 +7,7 @@
 //
 
 import XCTest
-//@testable import SwiftExtension
+@testable import SwiftExtension
 
 class SwiftExtensionTests: XCTestCase {
     
@@ -21,16 +21,19 @@ class SwiftExtensionTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testArray() {
+        // Given
+        var array = [0, 1, 2, 2, 3]
+        
+        // When
+        let index = array.indexOfObject(0)
+        let indexs = array.indexesOfObject(2)
+        let isRemoved = array.removeObject(3)
+        
+        // Then
+        XCTAssertEqual(0, index)
+        XCTAssertEqual([2, 3], indexs!)
+        XCTAssert(isRemoved)
     }
     
 }
