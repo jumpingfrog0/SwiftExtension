@@ -36,4 +36,15 @@ class SwiftExtensionTests: XCTestCase {
         XCTAssert(isRemoved)
     }
     
+    func testBundle() {
+        let bundleName = Bundle.main.bundleName
+        let shortVersion = Bundle.main.bundleShortVersion
+        let buildVersion = Bundle.main.bundleBuildVersion
+        let executeable = Bundle.main.bundleExecuteable
+        XCTAssertEqual(bundleName, "SwiftExtension")
+        XCTAssertEqual(shortVersion, "1.0.0")
+        XCTAssertEqual(buildVersion, "1")
+        XCTAssertEqual(executeable, "SwiftExtension")
+    }
+    
 }

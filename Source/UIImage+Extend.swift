@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import QuartzCore
 
 extension UIImage {
     class func imageWithTitle(_ title: String, frame: CGRect, backgroudColor: UIColor, textColor: UIColor) -> UIImage {
@@ -25,43 +26,43 @@ extension UIImage {
         return newImage!
     }
     
-    class func markerWithTitle(_ title: String, frame: CGRect, backgroudColor: UIColor, textColor: UIColor) -> UIImage {
-        let triangleWith = CGFloat(14)
-        let size = CGSize(width: frame.width, height: frame.height + triangleWith / 2)
-        
-        // draw title
-        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
-        backgroudColor.set()
-        UIRectFill(CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
-        
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
-        label.textColor = textColor
-        label.textAlignment = .center
-        label.text = title
-        label.drawText(in: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
-        
-        // draw a transparent layer
-        let ctx = UIGraphicsGetCurrentContext()
-        ctx?.addRect(CGRect(x: 0, y: frame.height, width: frame.width, height: triangleWith / 2))
-        UIColor.clear.set()
-        ctx?.fillPath()
-        
-        // draw a triangle
-        backgroudColor.set()
-        
-        let path = CGMutablePath()
-        CGPathMoveToPoint(path, nil, (frame.width - triangleWith) / 2, frame.height)
-        CGPathAddLineToPoint(path, nil, frame.width / 2, frame.height + triangleWith / 2)
-        CGPathAddLineToPoint(path, nil, (frame.width + triangleWith) / 2, frame.height)
-        path.closeSubpath()
-        
-        ctx?.addPath(path)
-        ctx?.fillPath()
-        
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return newImage!
-    }
+//    class func markerWithTitle(_ title: String, frame: CGRect, backgroudColor: UIColor, textColor: UIColor) -> UIImage {
+//        let triangleWith = CGFloat(14)
+//        let size = CGSize(width: frame.width, height: frame.height + triangleWith / 2)
+//        
+//        // draw title
+//        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
+//        backgroudColor.set()
+//        UIRectFill(CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
+//        
+//        let label = UILabel(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
+//        label.textColor = textColor
+//        label.textAlignment = .center
+//        label.text = title
+//        label.drawText(in: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
+//        
+//        // draw a transparent layer
+//        let ctx = UIGraphicsGetCurrentContext()
+//        ctx?.addRect(CGRect(x: 0, y: frame.height, width: frame.width, height: triangleWith / 2))
+//        UIColor.clear.set()
+//        ctx?.fillPath()
+//        
+//        // draw a triangle
+//        backgroudColor.set()
+//        
+//        let path = CGMutablePath()
+//        CGPathMoveToPoint(path, nil, (frame.width - triangleWith) / 2, frame.height)
+//        CGPathAddLineToPoint(path, nil, frame.width / 2, frame.height + triangleWith / 2)
+//        CGPathAddLineToPoint(path, nil, (frame.width + triangleWith) / 2, frame.height)
+//        path.closeSubpath()
+//        
+//        ctx?.addPath(path)
+//        ctx?.fillPath()
+//        
+//        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
+//        return newImage!
+//    }
     
     /**
      return a image that can be stretched random and no deformation

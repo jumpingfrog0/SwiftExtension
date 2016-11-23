@@ -6,8 +6,7 @@
 //  Copyright (c) 2015年 anglesoft. All rights reserved.
 //
 
-import Foundation
-
+import UIKit
 
 extension UIFont {
     func printFontNames() {

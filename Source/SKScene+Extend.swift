@@ -9,10 +9,11 @@
 
 import SpriteKit
 import UIKit
+import Foundation
 
 extension SKScene {
     
     var center: CGPoint {
-        return CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
+        return CGPoint(x: frame.midX, y: frame.midY)
     }
 }
