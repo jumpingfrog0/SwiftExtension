@@ -17,12 +17,11 @@
 		080084011DE6130000F49279 /* Array+Extend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080083ED1DE6130000F49279 /* Array+Extend.swift */; };
 		080084021DE6130000F49279 /* Bundle+Extend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080083EE1DE6130000F49279 /* Bundle+Extend.swift */; };
 		080084031DE6130000F49279 /* JFLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080083F01DE6130000F49279 /* JFLog.swift */; };
-		080084041DE6130000F49279 /* NSDate+Extend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080083F31DE6130000F49279 /* NSDate+Extend.swift */; };
-		080084051DE6130000F49279 /* Number+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080083F41DE6130000F49279 /* Number+Format.swift */; };
+		080084041DE6130000F49279 /* Time+Extend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080083F31DE6130000F49279 /* Time+Extend.swift */; };
+		080084051DE6130000F49279 /* Number+Extend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080083F41DE6130000F49279 /* Number+Extend.swift */; };
 		080084061DE6130000F49279 /* SKScene+Extend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080083F51DE6130000F49279 /* SKScene+Extend.swift */; };
 		080084071DE6130000F49279 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080083F61DE6130000F49279 /* Stack.swift */; };
 		080084081DE6130000F49279 /* String+Extend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080083F71DE6130000F49279 /* String+Extend.swift */; };
-		080084091DE6130000F49279 /* SWDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080083F81DE6130000F49279 /* SWDevice.swift */; };
 		0800840A1DE6130000F49279 /* UIApplication+Extend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080083F91DE6130000F49279 /* UIApplication+Extend.swift */; };
 		0800840B1DE6130000F49279 /* UIColor+Extend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080083FA1DE6130000F49279 /* UIColor+Extend.swift */; };
 		0800840C1DE6130000F49279 /* UIFont+Extend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080083FB1DE6130000F49279 /* UIFont+Extend.swift */; };
@@ -68,12 +67,11 @@
 		080083EE1DE6130000F49279 /* Bundle+Extend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Extend.swift"; sourceTree = "<group>"; };
 		080083F01DE6130000F49279 /* JFLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFLog.swift; sourceTree = "<group>"; };
 		080083F21DE6130000F49279 /* LogMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogMacros.h; sourceTree = "<group>"; };
-		080083F31DE6130000F49279 /* NSDate+Extend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extend.swift"; sourceTree = "<group>"; };
-		080083F41DE6130000F49279 /* Number+Format.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Number+Format.swift"; sourceTree = "<group>"; };
+		080083F31DE6130000F49279 /* Time+Extend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Time+Extend.swift"; sourceTree = "<group>"; };
+		080083F41DE6130000F49279 /* Number+Extend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Number+Extend.swift"; sourceTree = "<group>"; };
 		080083F51DE6130000F49279 /* SKScene+Extend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKScene+Extend.swift"; sourceTree = "<group>"; };
 		080083F61DE6130000F49279 /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		080083F71DE6130000F49279 /* String+Extend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extend.swift"; sourceTree = "<group>"; };
-		080083F81DE6130000F49279 /* SWDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWDevice.swift; sourceTree = "<group>"; };
 		080083F91DE6130000F49279 /* UIApplication+Extend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extend.swift"; sourceTree = "<group>"; };
 		080083FA1DE6130000F49279 /* UIColor+Extend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extend.swift"; sourceTree = "<group>"; };
 		080083FB1DE6130000F49279 /* UIFont+Extend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Extend.swift"; sourceTree = "<group>"; };
@@ -167,12 +165,11 @@
 				080083ED1DE6130000F49279 /* Array+Extend.swift */,
 				080083EE1DE6130000F49279 /* Bundle+Extend.swift */,
 				080083EF1DE6130000F49279 /* Log */,
-				080083F31DE6130000F49279 /* NSDate+Extend.swift */,
-				080083F41DE6130000F49279 /* Number+Format.swift */,
+				080083F31DE6130000F49279 /* Time+Extend.swift */,
+				080083F41DE6130000F49279 /* Number+Extend.swift */,
 				080083F51DE6130000F49279 /* SKScene+Extend.swift */,
 				080083F61DE6130000F49279 /* Stack.swift */,
 				080083F71DE6130000F49279 /* String+Extend.swift */,
-				080083F81DE6130000F49279 /* SWDevice.swift */,
 				080083F91DE6130000F49279 /* UIApplication+Extend.swift */,
 				080083FA1DE6130000F49279 /* UIColor+Extend.swift */,
 				080083FB1DE6130000F49279 /* UIFont+Extend.swift */,
@@ -342,8 +339,7 @@
 			files = (
 				080084101DE6130000F49279 /* UIView+Extend.swift in Sources */,
 				0800840E1DE6130000F49279 /* UILabel+Extend.swift in Sources */,
-				080084051DE6130000F49279 /* Number+Format.swift in Sources */,
-				080084091DE6130000F49279 /* SWDevice.swift in Sources */,
+				080084051DE6130000F49279 /* Number+Extend.swift in Sources */,
 				080084071DE6130000F49279 /* Stack.swift in Sources */,
 				080083921DE58BFD00F49279 /* ViewController.swift in Sources */,
 				0800840D1DE6130000F49279 /* UIImage+Extend.swift in Sources */,
@@ -356,7 +352,7 @@
 				0800840C1DE6130000F49279 /* UIFont+Extend.swift in Sources */,
 				080083901DE58BFD00F49279 /* AppDelegate.swift in Sources */,
 				0800840B1DE6130000F49279 /* UIColor+Extend.swift in Sources */,
-				080084041DE6130000F49279 /* NSDate+Extend.swift in Sources */,
+				080084041DE6130000F49279 /* Time+Extend.swift in Sources */,
 				080084061DE6130000F49279 /* SKScene+Extend.swift in Sources */,
 				080084021DE6130000F49279 /* Bundle+Extend.swift in Sources */,
 			);
