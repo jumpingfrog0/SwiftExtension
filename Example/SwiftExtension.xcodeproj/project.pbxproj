@@ -19,7 +19,6 @@
 		080084031DE6130000F49279 /* JFLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080083F01DE6130000F49279 /* JFLog.swift */; };
 		080084041DE6130000F49279 /* Time+Extend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080083F31DE6130000F49279 /* Time+Extend.swift */; };
 		080084051DE6130000F49279 /* Number+Extend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080083F41DE6130000F49279 /* Number+Extend.swift */; };
-		080084061DE6130000F49279 /* SKScene+Extend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080083F51DE6130000F49279 /* SKScene+Extend.swift */; };
 		080084071DE6130000F49279 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080083F61DE6130000F49279 /* Stack.swift */; };
 		080084081DE6130000F49279 /* String+Extend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080083F71DE6130000F49279 /* String+Extend.swift */; };
 		0800840A1DE6130000F49279 /* UIApplication+Extend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080083F91DE6130000F49279 /* UIApplication+Extend.swift */; };
@@ -69,7 +68,6 @@
 		080083F21DE6130000F49279 /* LogMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogMacros.h; sourceTree = "<group>"; };
 		080083F31DE6130000F49279 /* Time+Extend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Time+Extend.swift"; sourceTree = "<group>"; };
 		080083F41DE6130000F49279 /* Number+Extend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Number+Extend.swift"; sourceTree = "<group>"; };
-		080083F51DE6130000F49279 /* SKScene+Extend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKScene+Extend.swift"; sourceTree = "<group>"; };
 		080083F61DE6130000F49279 /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		080083F71DE6130000F49279 /* String+Extend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extend.swift"; sourceTree = "<group>"; };
 		080083F91DE6130000F49279 /* UIApplication+Extend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extend.swift"; sourceTree = "<group>"; };
@@ -167,7 +165,6 @@
 				080083EF1DE6130000F49279 /* Log */,
 				080083F31DE6130000F49279 /* Time+Extend.swift */,
 				080083F41DE6130000F49279 /* Number+Extend.swift */,
-				080083F51DE6130000F49279 /* SKScene+Extend.swift */,
 				080083F61DE6130000F49279 /* Stack.swift */,
 				080083F71DE6130000F49279 /* String+Extend.swift */,
 				080083F91DE6130000F49279 /* UIApplication+Extend.swift */,
@@ -353,7 +350,6 @@
 				080083901DE58BFD00F49279 /* AppDelegate.swift in Sources */,
 				0800840B1DE6130000F49279 /* UIColor+Extend.swift in Sources */,
 				080084041DE6130000F49279 /* Time+Extend.swift in Sources */,
-				080084061DE6130000F49279 /* SKScene+Extend.swift in Sources */,
 				080084021DE6130000F49279 /* Bundle+Extend.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,7 +10,7 @@ import UIKit
 
 extension UILabel {
     func strikethrough() {
-        self.attributedText = NSMutableAttributedString.strikethroughWithString(self.text)
+        self.attributedText = NSMutableAttributedString.strikethrough(withText: self.text)
     }
     
     func setTextColor(_ color: UIColor, range: NSRange) {

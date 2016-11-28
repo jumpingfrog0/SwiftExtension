@@ -9,68 +9,75 @@
 import Foundation
 import UIKit
 
-// MARK: - String+Format
+// MARK: - Format
+
 extension String {
-    static func stringFromTimeIntervalSince1970(_ time: TimeInterval, format: String) -> String?{
-        let date: Date = Date(timeIntervalSince1970: time)
-        return date.toString(format)
-    }
     
-    // transform timestamp that accurate to microsecond to string
-    static func stringFromTimeIntervalAccurateToMicrosecond(_ time: TimeInterval, format: String) -> String?{
-        return self.stringFromTimeIntervalSince1970(time / 100_0000, format: format)
+    /// Convert the specified format string to Date
+    ///
+    /// - Parameter format: Format (including number of components) of the attribute
+    /// - Returns: A date representation of string interpreted using the receiver’s current settings. If date(fromFormat:) can not parse the string, returns nil.
+    func date(fromFormat format: String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.date(from: self)
     }
-    
-    func date(_ format: String) -> Date? {
-        getDateFormatter().dateFormat = format
-        return getDateFormatter().date(from: self)
-    }
-    
-    func dateFromTimestamp(_ ts: TimeInterval) -> Date? {
-        return Date(timeIntervalSince1970: ts)
-    }
-    
+
+    /// Convert a string to `Float`
     var toFloat: Float {
         return (self as NSString).floatValue
     }
     
+    /// Convert a string to `Int`
     var toInt: Int {
         return (self as NSString).integerValue
     }
     
+    
+    /// Convert a string to `Double`
     var toDouble: Double {
         return (self as NSString).doubleValue
     }
     
+    
+    /// The length of elements in the string.
     var length: Int {
         return self.characters.count
     }
 }
 
-// MARK: - SubString
+// MARK: - Substring
 
 extension String: Collection {
     
-    func substringFromIndex(_ index: Int) -> String {
-        return self.substring(from: self.characters.index(self.startIndex, offsetBy: index))
+    
+    /// Returns a new string containing the characters of the String from the one at a given index to the end.
+    func substring(fromIndex index: Int) -> String {
+        return substring(from: characters.index(startIndex, offsetBy: index))
     }
     
-    func substringToIndex(_ index: Int) -> String {
-        return self.substring(to: self.characters.index(self.endIndex, offsetBy: index - self.length))
+    
+    /// Returns a new string containing the characters of the String up to, but not including, the one at a given index.
+    func substring(toIndex index: Int) -> String {
+        return substring(to: characters.index(endIndex, offsetBy: index - length))
     }
     
-    func substringWithRange(_ range: Range<Int>) -> String {
-        let start = self.characters.index(self.startIndex, offsetBy: range.lowerBound)
-        let end = self.characters.index(self.startIndex, offsetBy: range.upperBound)
-        return self.substring(with: start..<end)
+    
+    /// Returns a string object containing the characters of the String that lie within a given range.
+    func substring(withRange range: Range<Int>) -> String {
+        let start = characters.index(startIndex, offsetBy: range.lowerBound)
+        let end = characters.index(startIndex, offsetBy: range.upperBound)
+        return substring(with: start..<end)
     }
     
-    func contains(_ s: String) -> Bool {
-        return self.range(of: s) != nil
+    /// Finds the String whether including Chinese characters or not. If not found, return `false`.
+    var containsChineseCharacters: Bool {
+        return range(of: "\\p{Han}", options: .regularExpression) != nil
     }
     
-    func matchRegex(_ regex: String) -> Bool {
-        if let _ = self.range(of: regex, options: .regularExpression) {
+    /// Finds the String whether including a string matched a given regular expression or not. If not found, return `false`.
+    func match(ofRegex regex: String) -> Bool {
+        if let _ = range(of: regex, options: .regularExpression) {
             return true
         } else {
             return false
@@ -78,47 +85,102 @@ extension String: Collection {
     }
 }
 
-// MARK: - String+Other
+// MARK: - Measurement
+
 extension String {
-    func heightWithConstrainedWidth(_ width: CGFloat, font: UIFont) -> CGFloat {
+    
+    /// Calculates and returns the height for the receiver drawn using the given font, within the specified width in the current graphics context.
+    ///
+    /// - Parameters:
+    ///   - constrainedWidth: the specified max width of the String.
+    ///   - font: the font of the String.
+    /// - Returns: The height for the receiver drawn.
+    func height(constrainedWidth width: CGFloat, font: UIFont) -> CGFloat {
         let constraintRect = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
         let boundingBox = self.boundingRect(with: constraintRect, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName : font], context: nil)
         return boundingBox.height
     }
     
-    func heightWithConstrainedWidth(_ width: CGFloat, systemFontSize size: CGFloat) -> CGFloat {
-        return heightWithConstrainedWidth(width, font: UIFont.systemFont(ofSize: size))
+    /// Calculates and returns the height for the receiver drawn using the system font specified size, within the specified width in the current graphics context.
+    ///
+    /// - Parameters:
+    ///   - constrainedWidth: the specified max width of the String.
+    ///   - systemFontSize: The size (in points) to which the system font is scaled.
+    /// - Returns: The height for the receiver drawn.
+    func height(constrainedWidth width: CGFloat, systemFontSize size: CGFloat) -> CGFloat {
+        return height(constrainedWidth: width, font: UIFont.systemFont(ofSize: size))
     }
     
-    func maxWidthWithFont(_ font: UIFont) -> CGFloat {
+    /// Calculates and returns the max width for the receiver drawn using the given font, within the greatest finite width in the current graphics context.
+    ///
+    /// - Parameters:
+    ///   - font: the font of the String.
+    /// - Returns: The max width for the receiver drawn.
+    func maxWidth(font: UIFont) -> CGFloat {
         let constraintRect = CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude)
         let boundingBox = self.boundingRect(with: constraintRect, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName : font], context: nil)
         return boundingBox.width
     }
     
-    func maxWidthWithSystemFontSize(_ size: CGFloat) -> CGFloat {
-        return maxWidthWithFont(UIFont.systemFont(ofSize: size))
-    }
-    
-    // check whether contains Chinese
-    var containsChineseCharacters: Bool {
-        return range(of: "\\p{Han}", options: .regularExpression) != nil
+    /// Calculates and returns the max width for the receiver drawn using the system font specified size, within the greatest finite width in the current graphics context.
+    ///
+    /// - Parameters:
+    ///   - systemFontSize: The size (in points) to which the system font is scaled.
+    /// - Returns: The max width for the receiver drawn.
+    func maxWidth(systemFontSize size: CGFloat) -> CGFloat {
+        return maxWidth(font: UIFont.systemFont(ofSize: size))
     }
 }
 
+// MARK: - NSAttributedString
+
 extension NSAttributedString {
-    func heightWithConstrainedWidth(_ width: CGFloat) -> CGFloat {
+    
+    /// Returns the height required to draw the string, within the specified width in the current graphics context.
+    func height(constrainedWidth width: CGFloat) -> CGFloat {
         let constraintRect = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
-        let boundingBox = self.boundingRect(with: constraintRect, options: NSStringDrawingOptions.usesLineFragmentOrigin, context: nil)
+        let boundingBox = boundingRect(with: constraintRect, options: NSStringDrawingOptions.usesLineFragmentOrigin, context: nil)
         
         return ceil(boundingBox.height)
     }
+    
+    /// Returns the max width required to draw the string, within the greatest finite width in the current graphics context.
+    func maxWidth() -> CGFloat {
+        let constraintRect = CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude)
+        let boundingBox = boundingRect(with: constraintRect, options: NSStringDrawingOptions.usesLineFragmentOrigin, context: nil)
+        
+        return ceil(boundingBox.width)
+    }
 }
 
+// MARK: - NSMutableAttributedString
+
 extension NSMutableAttributedString {
-    class func strikethroughWithString(_ text: String?) -> NSMutableAttributedString {
+    
+    /// Returns a text which is underlined of a given text.
+    class func strikethrough(withText text: String?) -> NSMutableAttributedString {
         let attributeString = NSMutableAttributedString(string: text ?? "")
-        attributeString.addAttribute(NSStrikethroughStyleAttributeName, value: 2, range: NSMakeRange(0, attributeString.length))
+        attributeString.addAttribute(NSStrikethroughStyleAttributeName, value: NSUnderlineStyle.styleSingle.rawValue, range: NSMakeRange(0, attributeString.length))
+        return attributeString
+    }
+    
+    class func strikethrough(withText text: String?, color: UIColor) -> NSMutableAttributedString {
+        let attributeString = NSMutableAttributedString(string: text ?? "")
+        attributeString.addAttribute(NSStrikethroughStyleAttributeName, value: NSUnderlineStyle.styleSingle.rawValue, range: NSMakeRange(0, attributeString.length))
+        attributeString.addAttribute(NSStrikethroughColorAttributeName, value: color, range: NSMakeRange(0, attributeString.length))
+        return attributeString
+    }
+    
+    class func underline(withText text: String?) -> NSMutableAttributedString {
+        let attributeString = NSMutableAttributedString(string: text ?? "")
+        attributeString.addAttribute(NSUnderlineStyleAttributeName, value: NSUnderlineStyle.styleSingle.rawValue, range: NSMakeRange(0, attributeString.length))
+        return attributeString
+    }
+    
+    class func underline(withText text: String?, color: UIColor) -> NSMutableAttributedString {
+        let attributeString = NSMutableAttributedString(string: text ?? "")
+        attributeString.addAttribute(NSUnderlineStyleAttributeName, value: NSUnderlineStyle.styleSingle.rawValue, range: NSMakeRange(0, attributeString.length))
+        attributeString.addAttribute(NSUnderlineColorAttributeName, value: color, range: NSMakeRange(0, attributeString.length))
         return attributeString
     }
 }
