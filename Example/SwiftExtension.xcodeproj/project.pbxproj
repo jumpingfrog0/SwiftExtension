@@ -29,6 +29,8 @@
 		0800840F1DE6130000F49279 /* UINavigationBar+Extend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080083FE1DE6130000F49279 /* UINavigationBar+Extend.swift */; };
 		080084101DE6130000F49279 /* UIView+Extend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080083FF1DE6130000F49279 /* UIView+Extend.swift */; };
 		080084111DE6130000F49279 /* UIViewController+Extend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080084001DE6130000F49279 /* UIViewController+Extend.swift */; };
+		085E141E1DED30EE00E7CC37 /* TwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085E141D1DED30EE00E7CC37 /* TwoViewController.swift */; };
+		08D7F6E31DED2E97009E36B2 /* OneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D7F6E21DED2E97009E36B2 /* OneViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,8 @@
 		080083FE1DE6130000F49279 /* UINavigationBar+Extend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Extend.swift"; sourceTree = "<group>"; };
 		080083FF1DE6130000F49279 /* UIView+Extend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extend.swift"; sourceTree = "<group>"; };
 		080084001DE6130000F49279 /* UIViewController+Extend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extend.swift"; sourceTree = "<group>"; };
+		085E141D1DED30EE00E7CC37 /* TwoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoViewController.swift; sourceTree = "<group>"; };
+		08D7F6E21DED2E97009E36B2 /* OneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +135,8 @@
 			children = (
 				0800838F1DE58BFD00F49279 /* AppDelegate.swift */,
 				080083911DE58BFD00F49279 /* ViewController.swift */,
+				08D7F6E21DED2E97009E36B2 /* OneViewController.swift */,
+				085E141D1DED30EE00E7CC37 /* TwoViewController.swift */,
 				080083931DE58BFD00F49279 /* Main.storyboard */,
 				080083961DE58BFD00F49279 /* Assets.xcassets */,
 				080083981DE58BFD00F49279 /* LaunchScreen.storyboard */,
@@ -343,6 +349,7 @@
 				080084031DE6130000F49279 /* JFLog.swift in Sources */,
 				080084081DE6130000F49279 /* String+Extend.swift in Sources */,
 				0800840A1DE6130000F49279 /* UIApplication+Extend.swift in Sources */,
+				08D7F6E31DED2E97009E36B2 /* OneViewController.swift in Sources */,
 				0800840F1DE6130000F49279 /* UINavigationBar+Extend.swift in Sources */,
 				080084011DE6130000F49279 /* Array+Extend.swift in Sources */,
 				080084111DE6130000F49279 /* UIViewController+Extend.swift in Sources */,
@@ -351,6 +358,7 @@
 				0800840B1DE6130000F49279 /* UIColor+Extend.swift in Sources */,
 				080084041DE6130000F49279 /* Time+Extend.swift in Sources */,
 				080084021DE6130000F49279 /* Bundle+Extend.swift in Sources */,
+				085E141E1DED30EE00E7CC37 /* TwoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

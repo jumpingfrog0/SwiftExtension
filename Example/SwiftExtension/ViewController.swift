@@ -35,8 +35,28 @@ class ViewController: UIViewController {
         // underline
         label3.attributedText = NSMutableAttributedString.underline(withText: label3.text)
         label4.attributedText = NSMutableAttributedString.underline(withText: label4.text, color: UIColor.blue)
+        
+        // most top view controller
+        let topVc = UIApplication.shared.mostTopViewController()
+        jf_print(topVc)
     }
-
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let alertController = UIAlertController(title: "Amazing", message: "Amazing Message", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+            jf_print("click OK button")
+            let topVc = UIApplication.shared.mostTopViewController()
+            jf_print(topVc)
+        }))
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
+            jf_print("click Cancel button")
+        }))
+        present(alertController, animated: true, completion: {
+            let topVc = UIApplication.shared.mostTopViewController()
+            jf_print(topVc)
+        })
+    }
 }
 
