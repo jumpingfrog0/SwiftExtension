@@ -10,89 +10,105 @@ import UIKit
 import QuartzCore
 
 extension UIImage {
-    class func imageWithTitle(_ title: String, frame: CGRect, backgroudColor: UIColor, textColor: UIColor) -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(frame.size, true, 0.0)
+    
+    /// Generate an image of a given text with a given size, a given background color and a given text color.
+    ///
+    /// - Parameters:
+    ///   - text: The text to draw in.
+    ///   - size: The size of image.
+    ///   - backgroudColor: The background color of image.
+    ///   - textColor: The text color to draw in.
+    /// - Returns: A drawing image.
+    class func image(text: String, size: CGSize, backgroudColor: UIColor = UIColor.white, textColor: UIColor = UIColor.black) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(size, true, 0.0)
         backgroudColor.set()
-        UIRectFill(CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
+        UIRectFill(CGRect(x: 0, y: 0, width: size.width, height: size.height))
         
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: size.width, height: size.height))
         label.textColor = textColor
         label.textAlignment = .center
-        label.text = title
-        label.drawText(in: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
+        label.text = text
+        label.drawText(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
         
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return newImage!
     }
     
-//    class func markerWithTitle(_ title: String, frame: CGRect, backgroudColor: UIColor, textColor: UIColor) -> UIImage {
-//        let triangleWith = CGFloat(14)
-//        let size = CGSize(width: frame.width, height: frame.height + triangleWith / 2)
-//        
-//        // draw title
-//        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
-//        backgroudColor.set()
-//        UIRectFill(CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
-//        
-//        let label = UILabel(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
-//        label.textColor = textColor
-//        label.textAlignment = .center
-//        label.text = title
-//        label.drawText(in: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
-//        
-//        // draw a transparent layer
-//        let ctx = UIGraphicsGetCurrentContext()
-//        ctx?.addRect(CGRect(x: 0, y: frame.height, width: frame.width, height: triangleWith / 2))
-//        UIColor.clear.set()
-//        ctx?.fillPath()
-//        
-//        // draw a triangle
-//        backgroudColor.set()
-//        
-//        let path = CGMutablePath()
-//        CGPathMoveToPoint(path, nil, (frame.width - triangleWith) / 2, frame.height)
-//        CGPathAddLineToPoint(path, nil, frame.width / 2, frame.height + triangleWith / 2)
-//        CGPathAddLineToPoint(path, nil, (frame.width + triangleWith) / 2, frame.height)
-//        path.closeSubpath()
-//        
-//        ctx?.addPath(path)
-//        ctx?.fillPath()
-//        
-//        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-//        UIGraphicsEndImageContext()
-//        return newImage!
-//    }
-    
-    /**
-     return a image that can be stretched random and no deformation
-     */
-    class func resizableImage(_ imageName: String) -> UIImage{
-        let normal = UIImage(named: imageName)
-        let w = normal!.size.width * 0.5
-        let h = normal!.size.height * 0.5
-        return normal!.resizableImage(withCapInsets: UIEdgeInsetsMake(h, w, h, w), resizingMode: .stretch)
+    /// Create an image of a given text including a triangle marker, with a given size, a given background color and a given text color.
+    ///
+    /// - Parameters:
+    ///   - text: The text to draw in.
+    ///   - size: The size of image.
+    ///   - backgroudColor: The background color of image.
+    ///   - textColor: The text color to draw in.
+    /// - Returns: A drawing image including a triangle marker.
+    class func markerImage(text: String, size: CGSize, backgroudColor: UIColor = UIColor.black, textColor: UIColor = UIColor.white) -> UIImage {
+        let triangleWith = CGFloat(14)
+        let drawingSize = CGSize(width: size.width, height: size.height + triangleWith / 2)
+        
+        // draw title
+        UIGraphicsBeginImageContextWithOptions(drawingSize, false, 0.0)
+        backgroudColor.set()
+        UIRectFill(CGRect(x: 0, y: 0, width: size.width, height: size.height))
+        
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+        label.textColor = textColor
+        label.textAlignment = .center
+        label.text = text
+        label.drawText(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+        
+        // draw a transparent layer
+        let ctx = UIGraphicsGetCurrentContext()
+        ctx?.addRect(CGRect(x: 0, y: size.height, width: size.width, height: triangleWith / 2))
+        UIColor.clear.set()
+        ctx?.fillPath()
+        
+        // draw a triangle
+        backgroudColor.set()
+        
+        let path = CGMutablePath()
+        path.move(to: CGPoint(x: (size.width - triangleWith) / 2.0, y: size.height))
+        path.addLine(to: CGPoint(x: size.width / 2.0, y: size.height + triangleWith / 2.0))
+        path.addLine(to: CGPoint(x: (size.width + triangleWith) / 2.0, y: size.height))
+        path.closeSubpath()
+        
+        ctx?.addPath(path)
+        ctx?.fillPath()
+        
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage!
     }
     
-    /**
-     capture of view
-     */
-    class func captureWithView(_ view: UIView) -> UIImage {
+    /// Returns an image that can be stretched arbitrarily and not deformed.
+    class func resizableImage(named imageName: String) -> UIImage? {
+        guard let normal = UIImage(named: imageName) else {
+            jf_assert(false, "The image named `\(imageName)` not found.")
+            return nil
+        }
+        let w = normal.size.width * 0.5
+        let h = normal.size.height * 0.5
+        return normal.resizableImage(withCapInsets: UIEdgeInsetsMake(h, w, h, w), resizingMode: .stretch)
+    }
+    
+    
+    /// Capture the image of a given view.
+    class func captureView(_ view: UIView) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(view.frame.size, false, 0.0)
         view.layer.render(in: UIGraphicsGetCurrentContext()!)
         let clipImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return clipImage!
+        
+        return clipImage
     }
     
-    /**
-    clip a image in rect
-    */
-    func clippedImageWithRect(_ bounds: CGRect) -> UIImage {
+    /// Crops the image with a given rectangle.
+    func cropping(to rect: CGRect) -> UIImage {
         let scale = max(self.scale, 1.0)
-        let scaledBounds = CGRect(x: bounds.origin.x * scale, y: bounds.origin.y * scale, width: bounds.size.width * scale, height: bounds.size.height * scale)
-        let imageRef = self.cgImage?.cropping(to: scaledBounds)
-        let clippedImage = UIImage(cgImage: imageRef!, scale: self.scale, orientation: UIImageOrientation.up)
-        return clippedImage
+        let scaledRect = CGRect(x: rect.origin.x * scale, y: rect.origin.y * scale, width: rect.size.width * scale, height: rect.size.height * scale)
+        let imageRef = self.cgImage?.cropping(to: scaledRect)
+        let croppingImage = UIImage(cgImage: imageRef!, scale: self.scale, orientation: UIImageOrientation.up)
+        return croppingImage
     }
 }

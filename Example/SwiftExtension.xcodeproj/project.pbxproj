@@ -30,6 +30,7 @@
 		080084101DE6130000F49279 /* UIView+Extend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080083FF1DE6130000F49279 /* UIView+Extend.swift */; };
 		080084111DE6130000F49279 /* UIViewController+Extend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080084001DE6130000F49279 /* UIViewController+Extend.swift */; };
 		085E141E1DED30EE00E7CC37 /* TwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085E141D1DED30EE00E7CC37 /* TwoViewController.swift */; };
+		085E14201DED810000E7CC37 /* TestViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085E141F1DED810000E7CC37 /* TestViewController2.swift */; };
 		08D7F6E31DED2E97009E36B2 /* OneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D7F6E21DED2E97009E36B2 /* OneViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +82,7 @@
 		080083FF1DE6130000F49279 /* UIView+Extend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extend.swift"; sourceTree = "<group>"; };
 		080084001DE6130000F49279 /* UIViewController+Extend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extend.swift"; sourceTree = "<group>"; };
 		085E141D1DED30EE00E7CC37 /* TwoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoViewController.swift; sourceTree = "<group>"; };
+		085E141F1DED810000E7CC37 /* TestViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController2.swift; sourceTree = "<group>"; };
 		08D7F6E21DED2E97009E36B2 /* OneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -135,6 +137,7 @@
 			children = (
 				0800838F1DE58BFD00F49279 /* AppDelegate.swift */,
 				080083911DE58BFD00F49279 /* TestViewController.swift */,
+				085E141F1DED810000E7CC37 /* TestViewController2.swift */,
 				08D7F6E21DED2E97009E36B2 /* OneViewController.swift */,
 				085E141D1DED30EE00E7CC37 /* TwoViewController.swift */,
 				080083931DE58BFD00F49279 /* Main.storyboard */,
@@ -341,6 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				080084101DE6130000F49279 /* UIView+Extend.swift in Sources */,
+				085E14201DED810000E7CC37 /* TestViewController2.swift in Sources */,
 				0800840E1DE6130000F49279 /* UILabel+Extend.swift in Sources */,
 				080084051DE6130000F49279 /* Number+Extend.swift in Sources */,
 				080084071DE6130000F49279 /* Stack.swift in Sources */,
