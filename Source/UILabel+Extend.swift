@@ -41,6 +41,12 @@ extension UILabel {
         self.attributedText = attributedText
     }
     
+    
+    /// Set charactors displayed by the label with different colors within some given ranges.
+    ///
+    /// - Parameters:
+    ///   - colors: A array of different colors.
+    ///   - ranges: A array of ranges that text colors applied for.
     func setTextColors(_ colors: [UIColor], ranges: [NSRange]) {
         
         let attributedText = NSMutableAttributedString(string: self.text ?? "")

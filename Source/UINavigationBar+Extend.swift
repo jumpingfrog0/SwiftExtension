@@ -8,31 +8,14 @@
 
 import UIKit
 
-class SWNavigationItem: UINavigationItem {
-    
-}
-
-extension SWNavigationItem {
-    
-    override var backBarButtonItem: UIBarButtonItem? {
-        get {
-            return UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
-        }
-        set {
-            super.backBarButtonItem = newValue
-        }
-    }
-}
-
-// MARK: - BackgroundColor
-
 extension UINavigationBar {
     
     fileprivate struct AssociatedKeys {
         static var overlayKey = "sw_overlayKey"
     }
     
-    var overlay: UIView? {
+    /// A layer cover above `UINavigationBar`, using to change background color of navigation bar etc.
+    fileprivate var overlay: UIView? {
         set {
             objc_setAssociatedObject(self, &AssociatedKeys.overlayKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
@@ -41,7 +24,8 @@ extension UINavigationBar {
         }
     }
     
-    func sw_setBackgroundColor(_ backgroundColor: UIColor) {
+    /// Set background color of navigation bar.
+    func jf_setBackgroundColor(_ backgroundColor: UIColor) {
         if overlay == nil {
             setBackgroundImage(UIImage(), for: .default)
             shadowImage = UIImage()
@@ -54,7 +38,8 @@ extension UINavigationBar {
         overlay?.backgroundColor = backgroundColor
     }
     
-    func sw_reset() {
+    /// Recover the origin style of navigation bar.
+    func jf_reset() {
         self.setBackgroundImage(nil, for: .default)
         overlay?.removeFromSuperview()
         overlay = nil

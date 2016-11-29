@@ -27,4 +27,16 @@ class TwoViewController: UIViewController {
             jf_print(topVc)
         })
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.jf_setBackgroundColor(UIColor.clear)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        navigationController?.navigationBar.jf_reset()
+    }
 }

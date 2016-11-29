@@ -16,13 +16,20 @@ class OneViewController: UIViewController {
         // most top view controller
         let topVc = UIApplication.shared.mostTopViewController()
         jf_print(topVc)
+        
+        
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        
-//        let topVc = UIApplication.shared.mostTopViewController()
-//        jf_print(topVc)
-//    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.jf_setBackgroundColor(UIColor.brown)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        navigationController?.navigationBar.jf_reset()
+    }
 
 }
