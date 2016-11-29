@@ -9,11 +9,13 @@
 import UIKit
 
 extension UIFont {
+    
+    /// Prints the font family and font names of text.
     func printFontNames() {
         for family in UIFont.familyNames {
-            print("-----Font Family = \(family)")
+            print("----- Font Family is \(family) -----")
             for name in UIFont.fontNames(forFamilyName: family ) {
-                print("++++Font Name = \(name)")
+                print("===== Font Name is \(name) ======")
             }
         }
     }

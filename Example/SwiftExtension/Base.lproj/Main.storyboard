@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Test View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SwiftExtension" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="TestViewController" customModule="SwiftExtension" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -21,46 +21,143 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SW9-t8-BpF" userLabel="line1_left">
+                                <rect key="frame" x="0.0" y="40" width="97" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="09K-Jz-acr"/>
+                                    <constraint firstAttribute="height" constant="1" id="qMZ-EM-Zbf"/>
+                                </constraints>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="我是被删除的呜呜呜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Jh-GG-y1p">
-                                <rect key="frame" x="109" y="72" width="156" height="21"/>
+                                <rect key="frame" x="109" y="118" width="156" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="有种删我啊" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ohz-Re-Wtd">
-                                <rect key="frame" x="144" y="35" width="87" height="21"/>
+                                <rect key="frame" x="145" y="81" width="87" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="我是有底线的" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gj9-zz-6bY">
-                                <rect key="frame" x="135" y="110" width="104" height="21"/>
+                                <rect key="frame" x="136" y="156" width="104" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="我也是有底线的" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4O3-MG-GRy">
-                                <rect key="frame" x="126" y="147" width="122" height="21"/>
+                                <rect key="frame" x="127" y="193" width="122" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="以下是测试String的" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKY-SN-75n">
+                                <rect key="frame" x="105" y="30" width="150" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RUF-cn-m7x" userLabel="line1_right">
+                                <rect key="frame" x="264" y="40" width="100" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="GoH-LN-grR"/>
+                                    <constraint firstAttribute="width" constant="100" id="H20-wV-Nb9"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l13-cZ-w9I" userLabel="line2_left">
+                                <rect key="frame" x="5" y="291" width="97" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="YRy-M0-Wwq"/>
+                                    <constraint firstAttribute="height" constant="1" id="hI5-cv-2R8"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="以下是测试Label的" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lbo-vH-vpq">
+                                <rect key="frame" x="112" y="281" width="146" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cRV-gI-MLa" userLabel="line2_right">
+                                <rect key="frame" x="272" y="291" width="97" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="9LT-Mo-HaU"/>
+                                    <constraint firstAttribute="width" constant="97" id="z9T-3L-EIu"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="我是被删除的呜呜呜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qpi-Sp-vcY">
+                                <rect key="frame" x="109" y="362" width="156" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="有种删我啊" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6N-rf-BtB">
+                                <rect key="frame" x="145" y="325" width="87" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="我是有底线的" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wnx-Ju-zeR">
+                                <rect key="frame" x="136" y="400" width="104" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="我也是有底线的" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1A-YV-99l">
+                                <rect key="frame" x="127" y="437" width="122" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="我是五彩缤纷的哦" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3QR-KS-eMp">
+                                <rect key="frame" x="119" y="476" width="139" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="SW9-t8-BpF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="55W-j8-eDA"/>
+                            <constraint firstItem="l13-cZ-w9I" firstAttribute="top" secondItem="SW9-t8-BpF" secondAttribute="bottom" constant="250" id="LSL-ss-q1p"/>
+                            <constraint firstItem="cRV-gI-MLa" firstAttribute="centerY" secondItem="l13-cZ-w9I" secondAttribute="centerY" id="Ogg-iP-z7B"/>
+                            <constraint firstItem="SW9-t8-BpF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="V6u-Iz-akz"/>
+                            <constraint firstAttribute="trailing" secondItem="RUF-cn-m7x" secondAttribute="trailing" constant="11" id="Yak-5L-EBK"/>
+                            <constraint firstItem="l13-cZ-w9I" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="5" id="jLt-rc-Xrw"/>
+                            <constraint firstItem="RUF-cn-m7x" firstAttribute="centerY" secondItem="SW9-t8-BpF" secondAttribute="centerY" id="kEz-uc-pFG"/>
+                            <constraint firstAttribute="trailing" secondItem="cRV-gI-MLa" secondAttribute="trailing" constant="6" id="yIp-3E-l9l"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="label2" destination="Ohz-Re-Wtd" id="8nE-6w-APB"/>
+                        <outlet property="label1" destination="Ohz-Re-Wtd" id="vvr-WJ-tuT"/>
+                        <outlet property="label2" destination="6Jh-GG-y1p" id="wjW-hU-c5h"/>
                         <outlet property="label3" destination="gj9-zz-6bY" id="EJm-6Z-PCa"/>
                         <outlet property="label4" destination="4O3-MG-GRy" id="mXl-uX-sr3"/>
-                        <outlet property="strikethroughLabel" destination="6Jh-GG-y1p" id="cuZ-YB-kQm"/>
+                        <outlet property="label5" destination="C6N-rf-BtB" id="kbz-xT-qGh"/>
+                        <outlet property="label6" destination="Qpi-Sp-vcY" id="szQ-dq-Ux2"/>
+                        <outlet property="label7" destination="wnx-Ju-zeR" id="qp1-1H-JIg"/>
+                        <outlet property="label8" destination="W1A-YV-99l" id="DEU-z2-ntg"/>
+                        <outlet property="label9" destination="3QR-KS-eMp" id="8XI-WQ-B1V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="15.742128935532236"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="C8C-te-vk8">
