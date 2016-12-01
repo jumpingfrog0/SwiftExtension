@@ -17,14 +17,14 @@ class TwoViewController: UIViewController {
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
             jf_print("click OK button")
             let topVc = UIApplication.shared.mostTopViewController()
-            jf_print(topVc)
+            jf_print("Top view controller is \(topVc)")
         }))
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
             jf_print("click Cancel button")
         }))
         present(alertController, animated: true, completion: {
             let topVc = UIApplication.shared.mostTopViewController()
-            jf_print(topVc)
+            jf_print("Top view controller is \(topVc)")
         })
     }
     

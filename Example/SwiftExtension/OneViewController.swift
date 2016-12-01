@@ -9,15 +9,13 @@
 import UIKit
 
 class OneViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // most top view controller
         let topVc = UIApplication.shared.mostTopViewController()
-        jf_print(topVc)
-        
-        
+        jf_print("Top view controller is \(topVc)")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,6 +28,19 @@ class OneViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         navigationController?.navigationBar.jf_reset()
+    }
+    
+    @IBAction func showTabBar(_ sender: UIButton) {
+        
+        if sender.isSelected {
+            sender.isSelected = false
+            sender.setTitle("Hide Tab Bar", for: .normal)
+            self.showTabBar(of: self.tabBarController!)
+        } else {
+            sender.isSelected = true
+            sender.setTitle("Show Tab Bar", for: .normal)
+            self.hideTabBar(of: self.tabBarController!)
+        }
     }
 
 }

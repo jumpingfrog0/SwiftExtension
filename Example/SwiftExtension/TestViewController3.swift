@@ -36,7 +36,7 @@ class TestViewController3: UIViewController {
         amazingView_index_1?.frame = CGRect(x: 230, y: 520, width: 100, height: 100)
         view.addSubview(amazingView_index_1!)
         
-        jf_print(AmazingView.className())
+        jf_print(AmazingView.entityName())
         
         // Frame
         jf_print("The x of view1 is \(view1.x)")               // 200

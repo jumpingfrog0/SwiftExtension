@@ -22,17 +22,17 @@ extension UIView {
     
     /// Create the first instantiated view of the nib file named as the same as its class name
     class func loadFromNib() -> UIView? {
-        return UINib(nibName: className(), bundle: nil).instantiate(withOwner: nil, options: nil).first as? UIView
+        return UINib(nibName: entityName(), bundle: nil).instantiate(withOwner: nil, options: nil).first as? UIView
     }
     
     /// Create the `index` instantiated view of the nib file named as the same as its class name
     class func loadFromNib(ofIndex index: Int) -> UIView? {
-        var views = UINib(nibName: className(), bundle: nil).instantiate(withOwner: nil, options: nil) as? [UIView]
+        var views = UINib(nibName: entityName(), bundle: nil).instantiate(withOwner: nil, options: nil) as? [UIView]
         return views?[index]
     }
     
     /// Returns the class name of view
-    class func className() -> String {
+    class func entityName() -> String {
         let classString = NSStringFromClass(self)
         // The entity is the last component of dot-separated class name
         let components = classString.split { $0 == "." }
