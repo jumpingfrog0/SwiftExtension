@@ -11,22 +11,27 @@ import UIKit
 // MARK: - Nib
 
 extension UIView {
-    class func loadFromNibNamed(_ nibNamed: String, bundle : Bundle? = nil) -> UIView? {
+    
+    /// Create the first instantiated view of a given nib file in the specified bundle
+    class func load(fromNibName nibName: String, bundle : Bundle? = nil) -> UIView? {
         return UINib(
-            nibName: nibNamed,
+            nibName: nibName,
             bundle: bundle
-            ).instantiate(withOwner: nil, options: nil)[0] as? UIView
+            ).instantiate(withOwner: nil, options: nil).first as? UIView
     }
     
+    /// Create the first instantiated view of the nib file named as the same as its class name
     class func loadFromNib() -> UIView? {
-        return UINib(nibName: self.className(), bundle: nil).instantiate(withOwner: nil, options: nil).last as? UIView
+        return UINib(nibName: className(), bundle: nil).instantiate(withOwner: nil, options: nil).first as? UIView
     }
     
-    class func loadFromNibOfIndex(_ idx: Int) -> UIView? {
-        var views = UINib(nibName: self.className(), bundle: nil).instantiate(withOwner: nil, options: nil) as? [UIView]
-        return views?[idx]
+    /// Create the `index` instantiated view of the nib file named as the same as its class name
+    class func loadFromNib(ofIndex index: Int) -> UIView? {
+        var views = UINib(nibName: className(), bundle: nil).instantiate(withOwner: nil, options: nil) as? [UIView]
+        return views?[index]
     }
     
+    /// Returns the class name of view
     class func className() -> String {
         let classString = NSStringFromClass(self)
         // The entity is the last component of dot-separated class name
@@ -39,141 +44,114 @@ extension UIView {
 // MARK: - Frame
 
 extension UIView {
-    func x() -> CGFloat
-    {
-        return self.frame.origin.x
+    
+    /// The x-coordinate of the view's location
+    var x: CGFloat {
+        get {
+            return frame.origin.x
+        }
+        set {
+            frame.origin.x = newValue
+        }
     }
     
-    func setX(_ x: CGFloat)
-    {
-        var rect:CGRect = self.frame
-        rect.origin.x = x
-        self.frame = rect
+    /// The y-coordinate of the view's location
+    var y: CGFloat {
+        get {
+            return frame.origin.y
+        }
+        set {
+            frame.origin.y = newValue
+        }
     }
     
-    func y() -> CGFloat
-    {
-        return self.frame.origin.y
+    /// The width value of the view's size.
+    var width: CGFloat {
+        get {
+            return frame.size.width
+        }
+        set {
+            frame.size.width = newValue
+        }
     }
     
-    func setY(_ y: CGFloat)
-    {
-        var rect:CGRect = self.frame
-        rect.origin.y = y
-        self.frame = rect
+    /// The height value of the view's size.
+    var height: CGFloat {
+        get {
+            return frame.size.height
+        }
+        set {
+            frame.size.height = newValue
+        }
     }
     
-    func width() -> CGFloat
-    {
-        return self.frame.size.width
+    /// The right coordinate of the view.
+    var right: CGFloat {
+        get {
+            return frame.origin.x + frame.size.width
+        }
+        set {
+            frame.origin.x = newValue - frame.size.width
+        }
     }
     
-    func setWidth(_ width: CGFloat)
-    {
-        var rect:CGRect = self.frame
-        rect.size.width = width
-        self.frame = rect
+    /// The bottom coordinate of the view.
+    var bottom: CGFloat {
+        get {
+            return frame.origin.y + frame.size.height
+        }
+        set {
+            frame.origin.y = newValue - frame.size.height
+        }
     }
     
-    func height() -> CGFloat
-    {
-        return self.frame.size.height
+    /// The x-coordinate of the view's center
+    var midX: CGFloat {
+        get {
+            return center.x
+        }
+        set {
+            center.x = newValue
+        }
     }
     
-    func setHeight(_ height: CGFloat)
-    {
-        var rect:CGRect = self.frame
-        rect.size.height = height
-        self.frame = rect
-    }
-    
-    func right() -> CGFloat
-    {
-        return self.frame.origin.x + self.frame.size.width
-    }
-    
-    func setRight(_ right: CGFloat)
-    {
-        var rect:CGRect = self.frame
-        rect.origin.x = right - rect.size.width
-        self.frame = rect
-    }
-    
-    func bottom() -> CGFloat
-    {
-        return self.frame.origin.y + self.frame.size.height
-    }
-    
-    func setBottom(_ bottom: CGFloat)
-    {
-        var rect:CGRect = self.frame
-        rect.origin.y = bottom - rect.size.height
-        self.frame = rect
-    }
-    
-    func midX() -> CGFloat {
-        return self.center.x
-    }
-    
-    func setMidX(_ midX: CGFloat) {
-        var center = self.center
-        center.x = midX
-        self.center = center
-    }
-    
-    func midY() -> CGFloat {
-        return self.center.y
-    }
-    
-    func setMidY(_ midY: CGFloat) {
-        var center = self.center
-        center.y = midY
-        self.center = center
-    }
-    
-    func setHollowWithCenterFrame(_ centerFrame: CGRect) {
-        let path = UIBezierPath()
-        path.append(UIBezierPath(rect: self.frame))
-        path.append(UIBezierPath(rect: centerFrame).reversing())
-        let maskLayer = CAShapeLayer()
-        maskLayer.path = path.cgPath
-        self.layer.mask = maskLayer
-    }
-    
-    func setHollowCircleWithCornerRadius(_ radius: CGFloat) {
-        
-        let rect = CGRect(x: self.center.x - radius, y: self.center.y - radius, width: radius * 2, height: radius * 2)
-        
-        let path = UIBezierPath()
-        path.append(UIBezierPath(rect: self.frame))
-        path.append(UIBezierPath(roundedRect: rect, cornerRadius: radius).reversing())
-        let maskLayer = CAShapeLayer()
-        maskLayer.path = path.cgPath
-        self.layer.mask = maskLayer
+    /// The y-coordinate of the view's center
+    var midY: CGFloat {
+        get {
+            return center.y
+        }
+        set {
+            center.y = newValue
+        }
     }
 }
 
 // MARK: - XibConfiguration
 
 extension UIView {
+    
+    /// The color of the view’s border. Animatable.
     @IBInspectable var borderColor: UIColor {
         set {
-            self.layer.borderColor = newValue.cgColor
+            layer.borderColor = newValue.cgColor
         }
         get {
-            return UIColor(cgColor: self.layer.borderColor!)
+            return UIColor(cgColor: layer.borderColor!)
         }
     }
     
+    /// The width of the view’s border. Animatable.
     @IBInspectable var borderWidth: CGFloat {
         set {
-            self.layer.borderWidth = newValue
+            layer.borderWidth = newValue
         }
         get {
-            return self.layer.borderWidth
+            return layer.borderWidth
         }
     }
     
+    
+    /// The radius to use when drawing rounded corners for the view’s background. Animatable.
     @IBInspectable var cornerRadius: CGFloat {
         set {
             self.layer.cornerRadius = newValue
@@ -183,6 +161,7 @@ extension UIView {
         }
     }
     
+    /// A Boolean indicating whether subviews are clipped to the view’s bounds. Animatable.
     @IBInspectable var masksToBounds: Bool {
         set {
             self.layer.masksToBounds = newValue
@@ -191,12 +170,37 @@ extension UIView {
             return self.layer.masksToBounds
         }
     }
+}
+
+// MARK: - Other
+
+extension UIView {
     
-    /**
-     fix up the problem: cornerRadius with border but some glitch at border, you can observe a thin black border line around.
-     */
-    func borderWithCornerRadius(_ radius: CGFloat, borderColor: UIColor, borderWidth: CGFloat) {
-        let rect = self.bounds
+    /// Remove all subviews.
+    func removeAllSubviews() {
+        //        self.subviews.map { $0.removeFromSuperview() }
+        
+        for subview in self.subviews {
+            subview.removeFromSuperview()
+        }
+    }
+}
+
+// MARK: - Mask
+
+extension UIView {
+    /// Set the view's border with a given corner radius, a given color and a given width.
+    ///
+    /// This method fixs up the glitch at border that you can see a thin black border line around. The code is bleow:
+    ///
+    ///     button.layer.borderWidth = 2.0;
+    ///     button.layer.borderColor = [[UIColor whiteColor] CGColor];
+    ///     button.layer.cornerRadius = 4;
+    ///     button.clipsToBounds = YES;
+    ///
+    /// Refer to: http://stackoverflow.com/questions/25551053/cornerradius-with-border-some-glitch-at-border
+    func setBorder(cornerRadius radius: CGFloat, color: UIColor, width: CGFloat) {
+        let rect = bounds
         
         // Make round
         let maskPath = UIBezierPath(roundedRect: rect, byRoundingCorners: UIRectCorner.allCorners, cornerRadii: CGSize(width: radius, height: radius))
@@ -212,24 +216,54 @@ extension UIView {
         let borderLayer = CAShapeLayer()
         borderLayer.frame = rect
         borderLayer.path = borderPath.cgPath
-        borderLayer.strokeColor = borderColor.cgColor
+        borderLayer.strokeColor = color.cgColor
         borderLayer.fillColor = UIColor.clear.cgColor
-        borderLayer.lineWidth = borderWidth
+        borderLayer.lineWidth = width
         
         // Add this layer to give border.
         self.layer.addSublayer(borderLayer)
     }
-
-}
-
-// MARK: - Other
-
-extension UIView {
-    func removeAllSubviews() {
-        //        self.subviews.map { $0.removeFromSuperview() }
+    
+    /// Round only a subset of the corners of the rectangle.
+    ///
+    /// - Parameters:
+    ///   - corners: The corners that you want rounded.
+    ///   - radius: The radius of each corner oval. Values larger than half the rectangle’s width or height are clamped appropriately to half the width or height.
+    func setRoundCorners(byRoundingCorners corners: UIRectCorner, radius: CGFloat) {
+        let rect = bounds
         
-        for subview in self.subviews {
-            subview.removeFromSuperview()
-        }
+        // Make round
+        let maskPath = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let maskLayer = CAShapeLayer()
+        maskLayer.frame = rect
+        maskLayer.path = maskPath.cgPath
+        
+        // Set the newly created shape layer as the mask for the view's layer
+        self.layer.mask = maskLayer
     }
+    
+    // TODO: Set Hollow
+    
+//    func setHollowWithCenterFrame(_ centerFrame: CGRect) {
+//        let path = UIBezierPath(rect: self.frame)
+//        path.append(UIBezierPath(rect: self.frame))
+//        path.append(UIBezierPath(rect: centerFrame).reversing())
+//        path.usesEvenOddFillRule = true
+//        
+//        let maskLayer = CAShapeLayer()
+//        maskLayer.path = path.cgPath
+//        self.layer.mask = maskLayer
+//    }
+//    
+//    func setHollowCircleWithCornerRadius(_ radius: CGFloat) {
+//        
+//        let rect = CGRect(x: self.center.x - radius, y: self.center.y - radius, width: radius * 2, height: radius * 2)
+//        
+//        let path = UIBezierPath()
+//        path.append(UIBezierPath(rect: self.frame))
+//        path.append(UIBezierPath(roundedRect: rect, cornerRadius: radius).reversing())
+//        let maskLayer = CAShapeLayer()
+//        maskLayer.path = path.cgPath
+//        self.layer.mask = maskLayer
+//    }
 }

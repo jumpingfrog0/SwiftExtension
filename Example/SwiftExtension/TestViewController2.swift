@@ -19,6 +19,7 @@ class TestViewController2: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Test UIImage extension
         imageView1.image = UIImage.image(text: "AA", size: CGSize(width: 100, height: 100), backgroudColor: UIColor.yellow, textColor: UIColor.green)
         imageView2.image = UIImage.markerImage(text: "广州", size: CGSize(width: 100, height: 100), backgroudColor: UIColor.cyan, textColor: UIColor.red)
         imageView3.image = UIImage(named: "minion")?.cropping(to: CGRect(x: 500, y: 300, width: 100, height: 100))

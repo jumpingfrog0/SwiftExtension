@@ -98,6 +98,7 @@ class SwiftExtensionTests: XCTestCase {
         XCTAssertTrue("我是中国人".containsChineseCharacters, "Not contain Chinese characters.")
         XCTAssertTrue("15986934725".match(ofRegex: "159"), "Not match the regular expression.")
     }
+
 }
 
 extension Array: Container {}
