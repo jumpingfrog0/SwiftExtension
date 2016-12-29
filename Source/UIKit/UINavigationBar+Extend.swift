@@ -31,7 +31,7 @@ import UIKit
 extension UINavigationBar {
     
     fileprivate struct AssociatedKeys {
-        static var overlayKey = "sw_overlayKey"
+        static var overlayKey = "jf_overlayKey"
     }
     
     /// A layer cover above `UINavigationBar`, using to change background color of navigation bar etc.

@@ -26,6 +26,12 @@
 //  THE SOFTWARE.
 //
 
+/************ README **************
+ *
+ * Using XCTestTest to test the extensions of Foundation
+ * Using Interface to test the extensions of UIKit
+ */
+
 import UIKit
 
 @UIApplicationMain

@@ -1,5 +1,5 @@
 //
-//  TestViewController3.swift
+//  UIViewTestController.swift
 //  SwiftExtension
 //
 //  Created by jumpingfrog0 on 01/12/2016.
@@ -28,7 +28,7 @@
 
 import UIKit
 
-class TestViewController3: UIViewController {
+class UIViewTestController: UIViewController {
 
     @IBOutlet weak var view1: UIView!
     @IBOutlet weak var view2: UIView!
@@ -44,16 +44,19 @@ class TestViewController3: UIViewController {
         view2.setRoundCorners(byRoundingCorners: .topLeft, radius: 10)
         
         // Nib
-        let amazingView = AmazingView.load(fromNibName: "AmazingView", bundle: nil)
-        amazingView?.frame = CGRect(x: 10, y: 520, width: 100, height: 100)
+        let amazingView = AmazingView.load(fromNibName: "AmazingView", bundle: nil) as? AmazingView
+        amazingView?.titleLabel.text = "指定Nib名称"
+        amazingView?.frame = CGRect(x: 10, y: 570, width: 100, height: 100)
         view.addSubview(amazingView!)
         
-        let amazingView2 = AmazingView.loadFromNib()
-        amazingView2?.frame = CGRect(x: 120, y: 520, width: 100, height: 100)
+        let amazingView2 = AmazingView.loadFromNib() as? AmazingView
+        amazingView2?.titleLabel.text = "不指定Nib名称"
+        amazingView2?.frame = CGRect(x: 120, y: 570, width: 100, height: 100)
         view.addSubview(amazingView2!)
         
-        let amazingView_index_1 = AmazingView.loadFromNib(ofIndex: 1)
-        amazingView_index_1?.frame = CGRect(x: 230, y: 520, width: 100, height: 100)
+        let amazingView_index_1 = AmazingView.loadFromNib(ofIndex: 1) as? AmazingView
+        amazingView_index_1?.titleLabel.text = "根据index生成Nib中对应的view"
+        amazingView_index_1?.frame = CGRect(x: 230, y: 570, width: 100, height: 100)
         view.addSubview(amazingView_index_1!)
         
         jf_print(AmazingView.entityName())
@@ -69,10 +72,11 @@ class TestViewController3: UIViewController {
         jf_print("The midY of view1 is \(view1.midY)")         // 125
         
         // XibConfiguration
-        // Please see the view3 of TestViewController3 at Main.storyboard.
-        
-        // Other
+        // Please see the view3 of UIViewTestController at Main.storyboard.
+    }
+    
+    
+    @IBAction func removeAllSubviews() {
         view4.removeAllSubviews()
-        jf_print("All subviews of view4 has been removed.")
     }
 }

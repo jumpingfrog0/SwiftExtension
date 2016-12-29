@@ -1,5 +1,5 @@
 //
-//  TestViewController2.swift
+//  UIImageTestController.swift
 //  SwiftExtension
 //
 //  Created by jumpingfrog0 on 01/12/2016.
@@ -28,7 +28,7 @@
 
 import UIKit
 
-class TestViewController2: UIViewController {
+class UIImageTestController: UIViewController {
 
     @IBOutlet weak var imageView1: UIImageView!
     @IBOutlet weak var imageView2: UIImageView!

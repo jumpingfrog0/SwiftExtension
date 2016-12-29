@@ -1,8 +1,7 @@
-//
-//  TwoViewController.swift
+//  UIButtonTestController.swift
 //  SwiftExtension
 //
-//  Created by jumpingfrog0 on 01/12/2016.
+//  Created by jumpingfrog0 on 29/12/2016.
 //
 //
 //  Copyright (c) 2016 Jumpingfrog0 LLC
@@ -28,35 +27,36 @@
 
 import UIKit
 
-class TwoViewController: UIViewController {
-
+class UIButtonTestController: UIViewController {
+    
+    @IBOutlet weak var codeButton: UIButton!
+    var timer: Timer?
+    var seconds = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let alertController = UIAlertController(title: "Amazing", message: "Amazing Message", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
-            jf_print("click OK button")
-            let topVc = UIApplication.shared.mostTopViewController()
-            jf_print("Top view controller is \(topVc)")
-        }))
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
-            jf_print("click Cancel button")
-        }))
-        present(alertController, animated: true, completion: {
-            let topVc = UIApplication.shared.mostTopViewController()
-            jf_print("Top view controller is \(topVc)")
+    }
+    
+    // Test Submitting
+    @IBAction func clickCodeButton(button: UIButton) {
+        seconds = 60
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true
+            , block:
+            { [weak self] (timer) in
+                
+                self?.seconds -= 1
+                
+                guard let remainder = self?.seconds, remainder >= 0  else {
+                    self?.seconds = 60
+                    self?.codeButton.endSubmitting()
+                    self?.timer?.invalidate()
+                    self?.timer = nil
+                    return
+                }
+                
+                self?.codeButton.changeSubmittingTitle("\(remainder)秒")
         })
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        navigationController?.navigationBar.jf_setBackgroundColor(UIColor.clear)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        navigationController?.navigationBar.jf_reset()
+        button.beginSubmitting(title: "60秒")
+        RunLoop.main.add(timer!, forMode: RunLoopMode.commonModes)
     }
 }

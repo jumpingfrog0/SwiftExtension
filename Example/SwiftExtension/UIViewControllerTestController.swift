@@ -1,8 +1,7 @@
-//
-//  AmazingView.swift
+//  UIViewControllerTestController.swift
 //  SwiftExtension
 //
-//  Created by jumpingfrog0 on 01/12/2016.
+//  Created by jumpingfrog0 on 29/12/2016.
 //
 //
 //  Copyright (c) 2016 Jumpingfrog0 LLC
@@ -28,8 +27,18 @@
 
 import UIKit
 
-class AmazingView: UIView {
-
-    @IBOutlet weak var titleLabel: UILabel!
-
+class UIViewControllerTestController: UIViewController {
+    
+    @IBAction func showTabBar(_ sender: UIButton) {
+        
+        if sender.isSelected {
+            sender.isSelected = false
+            sender.setTitle("Hide Tab Bar", for: .normal)
+            self.showTabBar(of: self.tabBarController!)
+        } else {
+            sender.isSelected = true
+            sender.setTitle("Show Tab Bar", for: .normal)
+            self.hideTabBar(of: self.tabBarController!)
+        }
+    }
 }

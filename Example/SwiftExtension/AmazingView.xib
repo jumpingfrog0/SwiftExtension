@@ -15,8 +15,11 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amazing View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VX2-nO-kjP">
-                    <rect key="frame" x="145" y="326" width="85.5" height="16"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amazing View" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VX2-nO-kjP">
+                    <rect key="frame" x="138" y="326" width="100" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="9gf-yK-c31"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -27,13 +30,19 @@
                 <constraint firstItem="VX2-nO-kjP" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="9T1-pl-b2f"/>
                 <constraint firstItem="VX2-nO-kjP" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="pcN-mq-HUj"/>
             </constraints>
+            <connections>
+                <outlet property="titleLabel" destination="VX2-nO-kjP" id="NoD-fd-NPf"/>
+            </connections>
         </view>
         <view contentMode="scaleToFill" id="e5T-id-24I" customClass="AmazingView" customModule="SwiftExtension" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amazing View index_1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SED-SX-Wfv">
-                    <rect key="frame" x="131" y="327" width="114" height="13.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amazing View index_1" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SED-SX-Wfv">
+                    <rect key="frame" x="138" y="327" width="100" height="13.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="zFs-ae-1FB"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -44,6 +53,9 @@
                 <constraint firstItem="SED-SX-Wfv" firstAttribute="centerY" secondItem="e5T-id-24I" secondAttribute="centerY" id="1Vd-Xk-jdl"/>
                 <constraint firstItem="SED-SX-Wfv" firstAttribute="centerX" secondItem="e5T-id-24I" secondAttribute="centerX" id="Ca0-pl-dXs"/>
             </constraints>
+            <connections>
+                <outlet property="titleLabel" destination="SED-SX-Wfv" id="QXc-Qo-s7v"/>
+            </connections>
             <point key="canvasLocation" x="481" y="55"/>
         </view>
     </objects>

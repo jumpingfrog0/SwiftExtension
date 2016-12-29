@@ -1,8 +1,7 @@
-//
-//  OneViewController.swift
+//  UINavigationBarTestController.swift
 //  SwiftExtension
 //
-//  Created by jumpingfrog0 on 01/12/2016.
+//  Created by jumpingfrog0 on 29/12/2016.
 //
 //
 //  Copyright (c) 2016 Jumpingfrog0 LLC
@@ -28,20 +27,12 @@
 
 import UIKit
 
-class OneViewController: UIViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // most top view controller
-        let topVc = UIApplication.shared.mostTopViewController()
-        jf_print("Top view controller is \(topVc)")
-    }
+class UINavigationBarTestController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.navigationBar.jf_setBackgroundColor(UIColor.brown)
+        navigationController?.navigationBar.jf_setBackgroundColor(UIColor.clear)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -50,17 +41,14 @@ class OneViewController: UIViewController {
         navigationController?.navigationBar.jf_reset()
     }
     
-    @IBAction func showTabBar(_ sender: UIButton) {
+    @IBAction func setTransparentAction(sender: UIButton) {
         
-        if sender.isSelected {
-            sender.isSelected = false
-            sender.setTitle("Hide Tab Bar", for: .normal)
-            self.showTabBar(of: self.tabBarController!)
-        } else {
-            sender.isSelected = true
-            sender.setTitle("Show Tab Bar", for: .normal)
-            self.hideTabBar(of: self.tabBarController!)
-        }
+        navigationController?.navigationBar.jf_reset()
+        navigationController?.navigationBar.jf_setBackgroundColor(UIColor.clear)
     }
-
+    
+    @IBAction func setBrownAction(sender: UIButton) {
+        navigationController?.navigationBar.jf_reset()
+        navigationController?.navigationBar.jf_setBackgroundColor(UIColor.brown)
+    }
 }

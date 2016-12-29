@@ -49,13 +49,26 @@ extension UIApplication {
     /// Returns the most top view controller excepts `UIAlertController`
     public func mostTopViewController() -> UIViewController {
         
-        var topController = visibleKeyWindow?.rootViewController
-        
+        let topController = visibleKeyWindow?.rootViewController
         jf_assert(topController != nil, "The root view controller of keywindow is not existed.")
-        
+        return getTopController(topController)
+    }
+    
+    private func getTopController(_ topController: UIViewController?) -> UIViewController {
         if topController is UINavigationController {
             
-            return (topController as! UINavigationController).visibleViewController!
+            guard let visibleViewController = (topController as! UINavigationController).visibleViewController else {
+                
+                return topController!
+            }
+            
+            if visibleViewController is UIAlertController { // skip `UIAlertController`
+                let topVc = topController as! UINavigationController
+                let count = topVc.viewControllers.count
+                return topVc.viewControllers[count - 1]
+            }
+            
+            return visibleViewController
             
         } else if topController is UITabBarController {
             
@@ -63,23 +76,47 @@ extension UIApplication {
             
             if let selectedViewController = tabBarController.selectedViewController {
                 
-                return selectedViewController
-                
+                return getTopController(selectedViewController)
             } else {
                 return tabBarController.viewControllers![0]
             }
             
         } else { // UIViewController
             
-            while let presentedViewController = topController?.presentedViewController {
-                
+            var topVc = topController
+            while let presentedViewController = topVc?.presentedViewController {
                 if presentedViewController is UIAlertController { // skip `UIAlertController`
                     break
                 }
-                topController = presentedViewController
+                topVc = presentedViewController
             }
             
-            return topController!
+            return topVc!
+        }
+    }
+}
+
+extension UIApplication {
+    
+    /// Check weather status bar appearance is under the control of view controller
+    func jf_usesViewControllerBasedStatusBarAppearance() -> Bool {
+        let key = "UIViewControllerBasedStatusBarAppearance"
+        guard  let object = Bundle.main.object(forInfoDictionaryKey: key) else {
+            return true
+        }
+        
+        return (object as! Bool)
+    }
+    
+    /// Update status bar appearance.
+    /// if status bar appearance is under the control of view controller, indicates to the system that the given view controller status bar attributes have changed.
+    /// Otherwise, hides or shows the status bar, optionally animating the transition.
+    func jf_updateStatusBarAppearanceHidden(_ hidden: Bool, animation: UIStatusBarAnimation, fromViewController controller: UIViewController) {
+        
+        if jf_usesViewControllerBasedStatusBarAppearance() {
+            controller.setNeedsStatusBarAppearanceUpdate()
+        } else {
+            UIApplication.shared.setStatusBarHidden(hidden, with: animation)
         }
     }
 }
