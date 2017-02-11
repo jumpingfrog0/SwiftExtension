@@ -80,6 +80,11 @@ extension Date {
     static func startOfToday() -> Date {
        return Calendar.current.startOfDay(for: Date())
     }
+    
+    /// Returns the first moment of day, as a Date.
+    var beginningOfDay: Date {
+        return Calendar.current.startOfDay(for: self)
+    }
 }
 
 extension TimeInterval {
