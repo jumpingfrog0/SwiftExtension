@@ -46,5 +46,27 @@ class UIImageTestController: UIViewController {
         imageView4.image = UIImage.captureView(view)
         imageView5.image = UIImage.resizableImage(named: "qq_bubble.jpg")
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if isModal() {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(close))
+        }
+    }
+    
+    func close() {
+        dismiss(animated: true, completion: nil)
+    }
+}
 
+extension UIImageTestController {    
+    class func present(in controller: UIViewController) {
+        controller.present(self, fromStoryboard: "Main", inNavigationController: UINavigationController.self)
+    }
+    
+    class func push(inNavigationController navVc: UINavigationController?) {
+        self.push(inNavigationController: navVc, fromStoryboard: "Main")
+    }
+    
+    
 }

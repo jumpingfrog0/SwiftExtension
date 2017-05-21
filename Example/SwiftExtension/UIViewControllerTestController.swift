@@ -41,4 +41,12 @@ class UIViewControllerTestController: UIViewController {
             self.hideTabBar(of: self.tabBarController!)
         }
     }
+    
+    @IBAction func push() {
+        UIImageTestController.push(inNavigationController: self.navigationController)
+    }
+    
+    @IBAction func present() {
+        UIImageTestController.present(in: self)
+    }
 }

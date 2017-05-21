@@ -72,6 +72,36 @@ extension UIViewController {
     func objcast<T>(_ obj: AnyObject?) -> T? {
         return obj as! T?
     }
+    
+    /// Pushes a view controller
+    class func push(inNavigationController navigationController: UINavigationController?, fromStoryboard storyboardName: String) {
+        let controller = self.instantiate(fromStoryboard: storyboardName)
+        navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    // Present a view controller modally
+    func present(_ viewControllerToPersent: UIViewController.Type, fromStoryboard storyboardName: String, inNavigationController navigatoinController: UINavigationController.Type) {
+        
+        let vc = viewControllerToPersent.instantiate(fromStoryboard: storyboardName)
+        let navigation = navigatoinController.init(rootViewController: vc)
+        self.present(navigation, animated: true, completion: nil)
+    }
+    
+    /// Check if view controller is presented modally, or pushed on a navigation stack
+    /// Refer to: http://stackoverflow.com/questions/23620276/check-if-view-controller-is-presented-modally-or-pushed-on-a-navigation-stack
+    func isModal() -> Bool {
+        if let _ = presentingViewController {
+            return true
+        }
+        if navigationController?.presentingViewController?.presentedViewController is UINavigationController {
+            return true
+        }
+        if tabBarController?.presentingViewController is UITabBarController {
+            return true
+        }
+        
+        return false
+    }
 }
 
 // MARK: - Hide TabBar
@@ -127,7 +157,6 @@ extension UIViewController {
         }
         
         UIView.commitAnimations()
-
     }
 }
 
