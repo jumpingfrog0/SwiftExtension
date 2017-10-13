@@ -78,7 +78,6 @@
 		087357281E14F5D1005FDB4C /* Bundle+Extend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Extend.swift"; sourceTree = "<group>"; };
 		087357291E14F5D1005FDB4C /* JFLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFLog.swift; sourceTree = "<group>"; };
 		0873572A1E14F5D1005FDB4C /* Number+Extend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Number+Extend.swift"; sourceTree = "<group>"; };
-		0873572C1E14F5D1005FDB4C /* LogMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogMacros.h; sourceTree = "<group>"; };
 		0873572D1E14F5D1005FDB4C /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		0873572E1E14F5D1005FDB4C /* String+Extend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extend.swift"; sourceTree = "<group>"; };
 		0873572F1E14F5D1005FDB4C /* Time+Extend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Time+Extend.swift"; sourceTree = "<group>"; };
@@ -202,20 +201,11 @@
 				087357281E14F5D1005FDB4C /* Bundle+Extend.swift */,
 				087357291E14F5D1005FDB4C /* JFLog.swift */,
 				0873572A1E14F5D1005FDB4C /* Number+Extend.swift */,
-				0873572B1E14F5D1005FDB4C /* Objc */,
 				0873572D1E14F5D1005FDB4C /* Stack.swift */,
 				0873572E1E14F5D1005FDB4C /* String+Extend.swift */,
 				0873572F1E14F5D1005FDB4C /* Time+Extend.swift */,
 			);
 			path = Foundation;
-			sourceTree = "<group>";
-		};
-		0873572B1E14F5D1005FDB4C /* Objc */ = {
-			isa = PBXGroup;
-			children = (
-				0873572C1E14F5D1005FDB4C /* LogMacros.h */,
-			);
-			path = Objc;
 			sourceTree = "<group>";
 		};
 		087357301E14F5D1005FDB4C /* UIKit */ = {
